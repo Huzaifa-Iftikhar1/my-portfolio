@@ -38,6 +38,7 @@ const skills = [
 
 function App() {
   const [theme, setTheme] = useState('light');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const toggleTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
@@ -71,14 +72,19 @@ function App() {
   return (
     <div className="app">
       <header className="topbar">
-        <a className="brand" href="#home">
-          Huzaifa Ahmed
-        </a>
-        <nav className="nav-links">
-          <a href="#about">About</a>
-          <a href="#work">Work</a>
-          <a href="#skills">Skills</a>
-          <a href="#contact">Contact</a>
+        <div className="topbar-header">
+          <a className="brand" href="#home" onClick={() => setIsMobileMenuOpen(false)}>
+            Huzaifa Ahmed
+          </a>
+          <button className="mobile-menu-btn" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} aria-label="Toggle menu">
+            {isMobileMenuOpen ? '✕' : '☰'}
+          </button>
+        </div>
+        <nav className={`nav-links ${isMobileMenuOpen ? 'open' : ''}`}>
+          <a href="#about" onClick={() => setIsMobileMenuOpen(false)}>About</a>
+          <a href="#work" onClick={() => setIsMobileMenuOpen(false)}>Work</a>
+          <a href="#skills" onClick={() => setIsMobileMenuOpen(false)}>Skills</a>
+          <a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>Contact</a>
           <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">
             {theme === 'light' ? '🌙' : '☀️'}
           </button>
