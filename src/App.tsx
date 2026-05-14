@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 
 const stats = [
-  { value: '6+', label: 'Years experience' },
-  { value: '20+', label: 'Projects complete' },
+  { value: '1+', label: 'Years experience' },
+  { value: '10', label: 'Projects complete' },
   { value: '8', label: 'Technologies mastered' },
-  { value: '492', label: 'Code commits' },
+  { value: '50+', label: 'Code commits' },
 ];
 
 const projects = [
